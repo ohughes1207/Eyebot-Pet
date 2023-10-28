@@ -1,0 +1,31 @@
+﻿<Character SpeciesName="Eyebot" SpeciesTranslationOverride="" DisplayName="Eyebot" Group="human" Humanoid="False" HasInfo="False" CanInteract="False" Husk="False" UseHuskAppendage="False" NeedsAir="False" NeedsWater="False" CanSpeak="False" UseBossHealthBar="False" Noise="100" Visibility="100" BloodDecal="" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="True" EatingSpeed="50" UsePathFinding="True" PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="True" SonarDisruption="0" DistantSonarRange="0" DisableDistance="25000" SoundInterval="10" DrawLast="False">
+  <ragdolls folder="%ModDir%/Characters/Eyebot/Ragdolls/" />
+  <animations folder="%ModDir%/Characters/Eyebot/Animations/" />
+  <health Vitality="60" DoesBleed="False" CrushDepth="-Infinity" UseHealthWindow="False" BleedingReduction="0" BurnReduction="0" ConstantHealthRegeneration="0" HealthRegenerationWhenEating="0" StunImmunity="False" PoisonImmunity="True" ApplyAfflictionColors="False" />
+  <ai CombatStrength="1" Sight="1" Hearing="1" AggressionHurt="100" AggressionGreed="10" FleeHealthThreshold="0" AttackWhenProvoked="False" AvoidGunfire="False" DamageThreshold="0" AvoidTime="3" MinFleeTime="20" AggressiveBoarding="False" EnforceAggressiveBehaviorForMissions="True" TargetOuterWalls="True" RandomAttack="False" CanOpenDoors="False" KeepDoorsClosed="False" AvoidAbyss="True" StayInAbyss="False" PatrolFlooded="False" PatrolDry="False" StartAggression="0" MaxAggression="100" AggressionCumulation="0" WallTargetingMethod="Target">
+    <petbehavior maxhappiness="100" happinessdecreaserate="0.016" hungerincreaserate="0.01" playforce="6.0">
+      <eat tag="eyebot_food" ignorecontained="true" requiredhunger="30-60" hunger="-80" happiness="15" priority="100" />
+      <itemproduction rate="0.0" invhungerrate="0.002" requiredhunger="0-30">
+        <item identifier="depletedfuel" commonness="100" />
+      </itemproduction>
+      <itemproduction rate="0.0015" requiredhappiness="50-100" requiredhunger="0-30">
+        <item identifier="scrap" />
+      </itemproduction>
+      <itemproduction rate="0.0015" requiredhappiness="80-100" requiredhunger="0-30">
+        <item identifier="fulgurium" commonness="30" />
+        <item identifier="" commonness="70" />
+      </itemproduction>
+    </petbehavior>
+  </ai>
+  <sound File="%ModDir%/Characters/Eyebot/Npc_ede_laugh.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+  <sound File="%ModDir%/Characters/Eyebot/Npc_ede_homingbeep.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+  <sound File="%ModDir%/Characters/Eyebot/Npc_ede_fail.ogg" State="Damage" Range="1000" Volume="1" Tags="" />
+  <sound File="%ModDir%/Characters/Eyebot/Npc_ede_goodbye_happy.ogg" State="Happy" Range="1000" Volume="1" Tags="" />
+  <sound File="%ModDir%/Characters/Eyebot/Npc_ede_anger.ogg" State="Unhappy" Range="1000" Volume="1" Tags="" />
+  <StatusEffect type="OnDeath" target="This">
+    <Explosion range="150" force="2" smoke="true" shockwave="false" underwaterbubble="false" camerashake="12">
+      <Affliction identifier="stun" strength="12" />
+    </Explosion>
+  </StatusEffect>
+  <Inventory slots="Any, Any" accessiblewhenalive="True" commonness="1" />
+</Character>

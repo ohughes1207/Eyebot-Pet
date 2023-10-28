@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Eyebot Pet" modversion="1.0" corepackage="False" steamworkshopid="2892712507" gameversion="0.19.14.0">
+  <Character file="%ModDir%/Characters/Eyebot/Eyebot.xml" />
+  <Item file="%ModDir%/Content/Items/Eyebot/eyebot_items.xml" />
+  <Other file="%ModDir%/Content/Items/Eyebot/Eyebot_fuel.png" />
+  <Other file="%ModDir%/Content/Items/Eyebot/Eyebot_repaired.png" />
+  <Other file="%ModDir%/Content/Items/Eyebot/Eyebot_broken.png" />
+</contentpackage>

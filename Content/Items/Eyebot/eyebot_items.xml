@@ -1,0 +1,83 @@
+﻿<Items>
+  <Item name="Eyebot Fuel" identifier="eyebotfuel" category="Material" maxstacksize="8" Tags="smallitem,eyebot_food" cargocontaineridentifier="metalcrate" scale="0.5" allowasextracargo="true">
+    <Sprite texture="%ModDir%/Content/Items/Eyebot/Eyebot_fuel.png" depth="0.7" sourcerect="2,1,19,69" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Eyebot/Eyebot_fuel.png" sourcerect="47,3,61,59" origin="0.5,0.5" />
+	<Body radius="6" height="55" density="20" />
+    <Fabricate suitablefabricators="fabricator" >
+      <RequiredSkill identifier="electrical" level="65" />
+      <RequiredItem identifier="fuelrod" />
+    </Fabricate>
+    <Deconstruct >
+      <RequiredItem identifier="fuelrod" />
+    </Deconstruct>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <AiTarget sightrange="1000" static="true" />
+  </Item>
+  <Item name="Repaired Eyebot" identifier="eyebotegg" Tags="smallitem" hideinmenus="true" health="200" scale="0.3" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Content/Items/Eyebot/Eyebot_repaired.png" depth="0.7" sourcerect="136,31,146,165" origin="0.5,0.5" scale="0.3" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Eyebot/Eyebot_repaired.png" sourcerect="136,31,139,124" origin="0.5,0.5" scale="0.3" />
+    <Price baseprice="2300" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.75" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="physicorium" />
+	  <Item identifier="fulgurium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="electrical" level="55" />
+      <RequiredSkill identifier="mechanical" level="65" />
+      <Item identifier="silicon" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="brokeneyebot" />
+    </Fabricate>
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8" />
+    <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10" />
+    <Holdable />
+    <ItemContainer capacity="1" hideitems="true" showcontainedstateindicator="false" maxstacksize="1">
+      <Containable items="fpgacircuit">
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+        <StatusEffect type="OnContaining" target="This" Condition="0" setvalue="true">
+          <SpawnCharacter speciesname="eyebot" />
+          <Remove />
+        </StatusEffect>
+      </Containable>
+    </ItemContainer>
+  </Item>
+  <Item name="Broken Eyebot" identifier="brokeneyebot" Tags="smallitem" hideinmenus="true" category="Misc" scale="0.06" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Content/Items/Eyebot/Eyebot_broken.png" depth="0.7" sourcerect="6,6,792,563" origin="0.5,0.5" scale="0.1" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Eyebot/Eyebot_broken.png" sourcerect="6,6,792,563" origin="0.5,0.5" scale="0.1" />
+    <PreferredContainer primary="crewcab" />
+    <PreferredContainer secondary="abandonedstoragecab,wreckstoragecab" amount="1" spawnprobability="0.05" />
+    <Price baseprice="2300" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1.3" minavailable="1" maxavailable="1" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.75" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="fulgurium" />
+      <Item identifier="titaniumaluminiumalloy" />
+    </Deconstruct>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="electrical" level="55" />
+      <RequiredSkill identifier="mechanical" level="65" />
+      <Item identifier="fulgurium" />
+      <Item identifier="fulgurium" />
+      <Item identifier="physicorium" />
+	  <Item identifier="dementonite" />
+	  <Item identifier="titaniumaluminiumalloy" />
+    </Fabricate>
+    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8" />
+    <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10">
+	</Holdable>
+  </Item>
+</Items>
